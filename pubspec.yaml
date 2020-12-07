@@ -33,6 +33,7 @@ dependencies:
   geocoder: ^0.2.1
   geocoding: ^1.0.5
   font_awesome_flutter: ^8.10.0
+  http: ^0.12.2
 
 dev_dependencies:
   flutter_test:

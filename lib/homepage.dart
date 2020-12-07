@@ -12,6 +12,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   GoogleMapController _controller ;
   String searchaddress;
+  static GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 
   @override
@@ -326,12 +327,45 @@ class HomePageState extends State<HomePage> {
 
 Marker gramercyMarker = Marker(
   markerId: MarkerId('Jobxprss'),
+  onTap: (){
+    // return AlertDialog(
+    //   title: new Text("Ishraak Solutions Limited"),
+    //   content: new Text("Software Company"),
+    //   backgroundColor: Colors.white,
+    //   shape:
+    //   RoundedRectangleBorder(borderRadius: new BorderRadius.circular(15)),
+    //   actions: <Widget>[
+    //     new FlatButton(
+    //       child: new Text("Go To Details Page"),
+    //       textColor: Colors.greenAccent,
+    //       onPressed: () {
+    //         // this._yesOnPressed();
+    //       },
+    //     ),
+    //     new FlatButton(
+    //       child: Text("No"),
+    //       textColor: Colors.redAccent,
+    //       onPressed: () {
+    //         // this._noOnPressed();
+    //       },
+    //     ),
+    //   ],
+    // );
+    //Navigator.push(context, builder:(context)=>)
+    
+
+    print("Tapped on Marker");
+  },
   position: LatLng(23.776141, 90.414745),
   infoWindow: InfoWindow(title: 'Ishraak Solutions Limited'),
   icon: BitmapDescriptor.defaultMarkerWithHue(
     BitmapDescriptor.hueRed,
   ),
 );
+
+// Widget tapOnJob(BuildContext context){
+//
+// }
 
 Marker bernardinMarker = Marker(
   markerId: MarkerId('TigerIt'),
