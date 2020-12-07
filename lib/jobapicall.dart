@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
-import 'package:google_map_flutter_app/url.dart';
 import 'package:http/http.dart' as http;
 import 'package:google_map_flutter_app/mapdata.dart';
 
@@ -24,8 +22,13 @@ import 'package:google_map_flutter_app/mapdata.dart';
 //   }
 // }
 
-Future<List<MapDataModel>> fetchjob() async{
+Future<MapDataModel> fetchjob() async {
   String url = "https://raw.githubusercontent.com/Kakon007/jobap/main/job.json";
-  final response=await http.get(url);
-  return mapDataModelFromJson(response.body);
+  final response = await http.get(url);
+  if (response.statusCode == 200) {
+    MapDataModel data = MapDataModel.fromJson(json.decode(response.body));
+    return data;
+  } else {
+    return null;
+  }
 }
